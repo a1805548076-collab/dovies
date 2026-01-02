@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python发展史</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.7;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(45deg, #3776ab, #2d6ba0);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.6em;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 1.25em;
+            opacity: 0.95;
+        }
+
+        /* 主体双栏布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                order: -1; /* 移动端把侧边栏放上面 */
+            }
+        }
+
+        /* 时间线区域（左侧） */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #3776ab, #2d6ba0);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding: 24px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .year {
+            position: absolute;
+            left: -60px;
+            top: 24px;
+            width: 44px;
+            height: 44px;
+            background: #3776ab;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.15em;
+            z-index: 1;
+        }
+        
+        .event {
+            font-size: 1.35em;
+            font-weight: 600;
+            color: #3776ab;
+            margin-bottom: 12px;
+        }
+        
+        .description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        /* 嵌入方框（右侧侧边栏） */
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar h2 {
+            color: #3776ab;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+            text-align: center;
+        }
+
+        .python-badge {
+            display: block;
+            text-align: center;
+            background: #3776ab;
+            color: white;
+            padding: 10px;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            width: fit-content;
+            font-weight: bold;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.02em;
+            color: #555;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li strong {
+            color: #3776ab;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python发展史</h1>
+            <div class="subtitle">从1989年到现在的编程语言演变历程</div>
+        </header>
+
+        <div class="main-layout">
+            <!-- 左侧：时间线（全部左对齐） -->
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="year">1989</div>
+                    <div class="event">Python诞生</div>
+                    <div class="description">Guido van Rossum 在荷兰 CWI 开始开发 Python，目标是创建一门简洁、易读的脚本语言。名字源自喜剧团体 Monty Python。</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="year">1991</div>
+                    <div class="event">Python 0.9.0发布</div>
+                    <div class="description">首个公开版本发布，包含类、异常处理、函数等核心特性，奠定了语言基础。</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="year">1994</div>
+                    <div class="event">Python 1.0发布</div>
+                    <div class="description">引入 lambda、map、filter、reduce 等函数式编程工具，语言功能趋于成熟。</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="year">2000</div>
+                    <div class="event">Python 2.0发布</div>
+                    <div class="description">新增列表推导式、垃圾回收机制和 Unicode 支持，社区开始快速增长。</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="year">2008</div>
+                    <div class="event">Python 3.0发布</div>
+                    <div class="description">重大重构版本，移除冗余设计，统一字符串模型，虽不兼容但为未来打下坚实基础。</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="year">2020</div>
+                    <div class="event">Python 2 停止支持</div>
+                    <div class="description">官方终止对 Python 2 的维护，全面转向 Python 3，标志语言进入新时代。</div>
+                </div>
+            </div>
+
+            <!-- 右侧：嵌入方框（固定内容） -->
+            <div class="sidebar">
+                <span class="python-badge">🐍 Python</span>
+                <h2>语言特点</h2>
+                <ul class="feature-list">
+                    <li><strong>简洁易读</strong>：语法接近自然语言</li>
+                    <li><strong>生态强大</strong>：PyPI 超 50 万库</li>
+                    <li><strong>跨平台</strong>：Windows/macOS/Linux 全支持</li>
+                    <li><strong>多领域应用</strong>：Web、AI、数据科学等</li>
+                    <li><strong>动态类型</strong>：无需声明变量类型</li>
+                    <li><strong>开源免费</strong>：基于 PSF 许可证</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
